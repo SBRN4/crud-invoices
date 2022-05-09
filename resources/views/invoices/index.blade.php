@@ -22,7 +22,7 @@
       </div>
 
     <div class="tambah">
-        <button>+Tambah Invoice</button>
+        <a href="{{ url('create') }}"><button>+Tambah Invoice</button></a>
     </div>
 
     <div class="container-3">
@@ -38,10 +38,11 @@
                     <th>Status Invoice</th>
                     <th>Status Payment Invoice</th>
                     <th>Deskripsi</th>
+                    <th>Opsion</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($invoices as $item)
+                @forelse ($invoices as $post)
                     <tr>
                         <td>{{ $post->no }}</td>
                         <td>{{ $post->tanggal_invoice }}</td>
@@ -52,6 +53,11 @@
                         <td>{{ $post->status_invoice }}</td>
                         <td>{{ $post->status_payment_invoice }}</td>
                         <td>{{ $post->deskripsi }}</td>
+                        <td>
+                            <a href="/invoices/edit/{{ $post->id }}">Edit</a>
+                            |
+                            <a href="/invoices/hapus/{{ $post->id }}">Hapus</a>
+                        </td>
                     </tr>
                 @empty
                 <div class="alert alert-danger">

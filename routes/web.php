@@ -11,4 +11,8 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/create', function () {
+    return view ('invoices.create');
+});
+
 Route::get('/invoices', [InvoiceController::class, 'index']);
