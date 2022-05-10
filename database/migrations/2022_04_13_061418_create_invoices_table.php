@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
             $table->integer('no')->unique();
+            $table->char('id');
             $table->date('tanggal_invoice');
             $table->date('tanggal_jatuh_tempo');
             $table->char('customer', 25);

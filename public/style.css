@@ -10,6 +10,16 @@
     background-color: #2b303b;
 }
 
+.nav-link {
+    margin-left: 200px;
+    color: white;
+    margin-top: 5px;
+}
+
+.tambah {
+    margin-right: 20px;
+}
+
 .container-1 {
     width: 300px;
     vertical-align: middle;
@@ -143,3 +153,4 @@ table tr:hover td {
     background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
     background: -moz-linear-gradient(top, #f2f2f2, #f0f0f0);
 }
+

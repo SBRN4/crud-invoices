@@ -40,7 +40,18 @@ class InvoiceController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //validate form
+        $this->validate($request, [
+            'tanggal_invoice'     => 'required',
+            'tanggal_jatuh_tempo'     => 'required',
+            'customer'   => 'required',
+            'diskon'    => 'required|numeric',
+            'pajak'     => 'required|numeric',
+            'status_invoice'    => 'required',
+            'status_payment_invoice' => 'required',
+            'deskripsi'     => 'required',
+        ]);
+
         //redirect to index
         return redirect()->route('posts.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }

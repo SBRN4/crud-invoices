@@ -22,7 +22,7 @@
       </div>
 
     <div class="tambah">
-        <a href="{{ url('create') }}"><button>+Tambah Invoice</button></a>
+        <a href="/create"><button>+Tambah Invoice</button></a>
     </div>
 
     <div class="container-3">
@@ -30,14 +30,10 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Tanggal Invoice</th>
-                    <th>Jatuh Tempo</th>
+                    <th>ID</th>
                     <th>Customer</th>
-                    <th>Diskon</th>
-                    <th>Pajak</th>
                     <th>Status Invoice</th>
                     <th>Status Payment Invoice</th>
-                    <th>Deskripsi</th>
                     <th>Opsion</th>
                 </tr>
             </thead>
@@ -45,14 +41,12 @@
                 @forelse ($invoices as $post)
                     <tr>
                         <td>{{ $post->no }}</td>
-                        <td>{{ $post->tanggal_invoice }}</td>
-                        <td>{{ $post->tanggal_jatuh_tempo }}</td>
+                        <td>
+                            <a href="/invoices/data">{{ $post->id }}</a>
+                        </td>
                         <td>{{ $post->customer }}</td>
-                        <td>{{ $post->diskon }}</td>
-                        <td>{{ $post->pajak }}</td>
                         <td>{{ $post->status_invoice }}</td>
                         <td>{{ $post->status_payment_invoice }}</td>
-                        <td>{{ $post->deskripsi }}</td>
                         <td>
                             <a href="/invoices/edit/{{ $post->id }}">Edit</a>
                             |
@@ -68,6 +62,8 @@
         </table>
         {{-- {{ $invoices->links() }} --}}
     </div>
+
+    @yield('container')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
